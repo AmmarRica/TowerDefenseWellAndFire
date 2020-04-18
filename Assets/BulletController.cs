@@ -24,6 +24,7 @@ public class BulletController : MonoBehaviour
         if(collision.gameObject.tag == "Enemy")
         {
             Debug.Log("hit enemy");
+            Destroy(collision.gameObject, 0.1f);
         }
     }
 }

@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67f44e0dcdaf4d14aa672f3f2ec986f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFiring: 1
+  isFiring: 0
   spawn: {fileID: 899482462500158960}
   shotdistance: 20
   bullet: {fileID: 7308986118169933327, guid: e33c0e40716e2f740893dd7810eb2fd3, type: 3}
