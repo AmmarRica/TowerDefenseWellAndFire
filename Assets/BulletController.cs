@@ -18,4 +18,12 @@ public class BulletController : MonoBehaviour
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+            Debug.Log("hit enemy");
+        }
+    }
 }
