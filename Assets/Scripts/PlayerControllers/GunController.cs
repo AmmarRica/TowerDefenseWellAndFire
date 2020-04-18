@@ -10,6 +10,8 @@ public class GunController : MonoBehaviour
     public Transform spawn;
     public float shotdistance = 20;
 
+    public ParticleSystem particleSystem;
+
     public BulletController bullet;
     public float bulletSpeed = 5f;
 
@@ -42,17 +44,21 @@ public class GunController : MonoBehaviour
     {
         if (isFiring)
         {
+            
             shotCounter -= Time.deltaTime;
             if (shotCounter <= 0)
             {
                 shotCounter = timeBetweenShots;
                 BulletController newBullet = Instantiate(bullet, firePoint.position, firePoint.rotation);
                 newBullet.speed = bulletSpeed;
+
+                particleSystem.Play();
             }
         }
         else
         {
             shotCounter = 0;
+            particleSystem.Stop();
         }
     }
 }
