@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Controller : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
 
     public float moveSpeed = 6;
     public float rotationSpeed = 450;
-    public Gun gun;
+    public GunController gun;
 
     Rigidbody rigidbody;
     Camera ViewCamera;
@@ -31,7 +31,16 @@ public class Controller : MonoBehaviour
 
         if (Input.GetButtonDown("shoot"))
         {
-            gun.Shoot();
+            if (gun == null) { Debug.Log("no gun found"); }
+            else
+            {
+                gun.Shoot();
+                gun.isFiring = true;
+            }
+        }
+        if (Input.GetButtonUp("shoot") && gun)
+        {
+            gun.isFiring = false;
         }
     }
 
@@ -40,8 +49,8 @@ public class Controller : MonoBehaviour
         Vector3 mousePos = Input.mousePosition;
 
         mousePos = ViewCamera.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, ViewCamera.transform.position.y - transform.position.y));
-        targetRotation = Quaternion.LookRotation(mousePos- new Vector3(transform.position.x, 0, transform.position.z));
-        transform.eulerAngles = Vector3.up * Mathf.MoveTowardsAngle(transform.eulerAngles.y, targetRotation.eulerAngles.y, rotationSpeed  * Time.deltaTime);
+        targetRotation = Quaternion.LookRotation(mousePos - new Vector3(transform.position.x, 0, transform.position.z));
+        transform.eulerAngles = Vector3.up * Mathf.MoveTowardsAngle(transform.eulerAngles.y, targetRotation.eulerAngles.y, rotationSpeed * Time.deltaTime);
 
 
         Vector3 input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")); //.normalized * moveSpeed;
