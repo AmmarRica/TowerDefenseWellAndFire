@@ -6,22 +6,36 @@ public class BulletController : MonoBehaviour
 {
 
     public float speed = 5f;
+    public Rigidbody rb;
+
+    public float bulletLifeTime = 3; 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        bulletLifeTime -= Time.deltaTime;
+        if(bulletLifeTime <=0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        //transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        rb.AddForce(transform.forward * speed);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        Debug.Log("Bullet collided with: "+collision.gameObject.name);
+
+        if (collision.gameObject.tag == "Enemy")
         {
             Debug.Log("hit enemy");
             Destroy(collision.gameObject, 0.1f);

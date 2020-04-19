@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour
     public Vector3 size;
     public GameObject endPoint;
     public Transform target;
-   
+
     NavMeshAgent agent;
 
 
@@ -19,19 +19,20 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         //target = PlayerManager1.instance.playerObj.transform;
-        
+
         agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (target == null) { return; }
         float distance = Vector3.Distance(target.position, transform.position);
 
         if (distance <= lookRadius)
         {
             agent.SetDestination(target.position);
-            
+
 
             if (distance <= agent.stoppingDistance)
             {
@@ -39,12 +40,9 @@ public class EnemyController : MonoBehaviour
                 // Face the target
                 FaceTarget();
             }
-
-         
-
         }
-        else 
-        { 
+        else
+        {
             agent.SetDestination(endPoint.transform.position);
         }
     }
@@ -62,4 +60,5 @@ public class EnemyController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, size);
     }
+
 }
