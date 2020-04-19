@@ -1306,6 +1306,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 5641564323611832646, guid: 76f123bb1f6cb0546aa7edb6e458f023,
+        type: 3}
+      propertyPath: pushForce
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76f123bb1f6cb0546aa7edb6e458f023, type: 3}
 --- !u!1 &1247245320
@@ -2368,6 +2373,11 @@ PrefabInstance:
         type: 3}
       propertyPath: waterReduceRate
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 540265758053818910, guid: 8a0861540dedd8044901aa6d3b10fdc3,
+        type: 3}
+      propertyPath: rate
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 4461567026346318310, guid: 8a0861540dedd8044901aa6d3b10fdc3,
         type: 3}

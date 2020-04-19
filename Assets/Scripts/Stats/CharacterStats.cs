@@ -4,7 +4,7 @@ public class CharacterStats : MonoBehaviour
 {
     public int maxHealth = 100;
     public int maxWaterSupply = 100;
-    public int CurrentHealth { get; private set; }
+    public float CurrentHealth { get; private set; }
 
     public Stat damage;
     public Stat armor;
@@ -12,6 +12,7 @@ public class CharacterStats : MonoBehaviour
 
     public float waterAddRate = 0.5f;
     public float waterReduceRate = 0.5f;
+    public float rate=1;
 
     void Awake()
      {
@@ -34,8 +35,9 @@ public class CharacterStats : MonoBehaviour
         damage -= armor.GetValue();
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
-        CurrentHealth -= damage;
+        CurrentHealth -= (damage );
         Debug.Log(transform.name + " takes " + damage + " damage.");
+        Debug.Log("current health: " + CurrentHealth);
 
         if(CurrentHealth <= 0)
         {
