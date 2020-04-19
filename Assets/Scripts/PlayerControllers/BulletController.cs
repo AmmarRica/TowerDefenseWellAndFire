@@ -8,7 +8,8 @@ public class BulletController : MonoBehaviour
     public float speed = 5f;
     public Rigidbody rb;
 
-    public float bulletLifeTime = 3; 
+    public float bulletLifeTime = 3;
+    public int damageToFire = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +39,12 @@ public class BulletController : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             Debug.Log("hit enemy");
-            Destroy(collision.gameObject, 0.1f);
+            //Destroy(collision.gameObject, 0.1f);
+            var enemyStats = collision.gameObject.GetComponent<EnemyStats>();
+            if(enemyStats != null)
+            {
+                enemyStats.TakeDamage(damageToFire);
+            }
         }
     }
 }

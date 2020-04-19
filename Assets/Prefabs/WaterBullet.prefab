@@ -97,6 +97,7 @@ MonoBehaviour:
   speed: 1
   rb: {fileID: 7978089653757774390}
   bulletLifeTime: 3
+  damageToFire: 20
 --- !u!65 &3547142354160378639
 BoxCollider:
   m_ObjectHideFlags: 0

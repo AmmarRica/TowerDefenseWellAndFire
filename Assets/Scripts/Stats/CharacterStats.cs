@@ -10,8 +10,6 @@ public class CharacterStats : MonoBehaviour
     public Stat armor;
     public float waterSupply;
 
-    private float timer = 0;
-    
     public float waterAddRate = 0.5f;
     public float waterReduceRate = 0.5f;
 
@@ -57,7 +55,7 @@ public class CharacterStats : MonoBehaviour
     {
         if(waterSupply <= maxWaterSupply)
         {
-            Debug.Log("Water Supply:" + waterSupply);
+            //Debug.Log("Water Supply:" + waterSupply);
             waterSupply= waterSupply + (Time.deltaTime * waterAddRate);
         }
         else
@@ -68,7 +66,7 @@ public class CharacterStats : MonoBehaviour
     }
     public void SpendWater()
     {
-        timer += Time.deltaTime;
+        
         if(waterSupply <= 0)
         {
             Debug.Log("Water is Empty!");
@@ -77,7 +75,7 @@ public class CharacterStats : MonoBehaviour
         else
         {
                 waterSupply = waterSupply - (Time.deltaTime * waterReduceRate);
-                Debug.Log("Water is: " + waterSupply);
+                //Debug.Log("Water is: " + waterSupply);
         }
     }
 
