@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 5388810484931629633}
   m_Layer: 0
   m_Name: EnemeyAI
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,9 +179,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2e6cb2311392ec46abf8d0add7acd12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookRadius: 26.53
-  endPoint: {fileID: 0}
-  target: {fileID: 0}
+  lookRadius: 3
+  size: {x: 0, y: 0, z: 0}
+  endPoint: {fileID: 7792470841913525870, guid: cc27a12f7aab7a444b33a759c93816aa,
+    type: 3}
+  target: {fileID: 6143540678392264514, guid: cc27a12f7aab7a444b33a759c93816aa, type: 3}
 --- !u!114 &5388810484931629633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,6 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  maxWaterSupply: 100
   damage:
     baseValue: 0
   armor:
