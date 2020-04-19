@@ -40,12 +40,16 @@ public class PlayerController : MonoBehaviour
                 gun.isFiring = true;
                 characterStats.SpendWater();
             }
+            else
+            {
+                gun.isFiring = false;
+            }
         }
-
-        if (Input.GetButtonUp("shoot") && gun)
+        if (Input.GetButtonUp("shoot"))
         {
             gun.isFiring = false;
         }
+
     }
 
     void ControlMouse()
