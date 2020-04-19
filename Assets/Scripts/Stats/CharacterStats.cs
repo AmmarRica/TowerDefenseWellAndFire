@@ -8,7 +8,7 @@ public class CharacterStats : MonoBehaviour
 
     public Stat damage;
     public Stat armor;
-    public float waterSupply;
+    public float CurrentWaterSupply;
 
     public float waterAddRate = 0.5f;
     public float waterReduceRate = 0.5f;
@@ -55,35 +55,35 @@ public class CharacterStats : MonoBehaviour
 
     public void ReloadWater()
     {
-        if(waterSupply <= maxWaterSupply)
+        if(CurrentWaterSupply <= maxWaterSupply)
         {
             //Debug.Log("Water Supply:" + waterSupply);
-            waterSupply= waterSupply + (Time.deltaTime * waterAddRate);
+            CurrentWaterSupply= CurrentWaterSupply + (Time.deltaTime * waterAddRate);
         }
         else
         {
             Debug.Log("Water is full!");
-            waterSupply = 100;
+            CurrentWaterSupply = 100;
         }
     }
     public void SpendWater()
     {
         
-        if(waterSupply <= 0)
+        if(CurrentWaterSupply <= 0)
         {
             Debug.Log("Water is Empty!");
-            waterSupply = 0;
+            CurrentWaterSupply = 0;
         }
         else
         {
-                waterSupply = waterSupply - (Time.deltaTime * waterReduceRate);
+                CurrentWaterSupply = CurrentWaterSupply - (Time.deltaTime * waterReduceRate);
                 //Debug.Log("Water is: " + waterSupply);
         }
     }
 
     public bool PlayerCanShoot()
     {
-        if(waterSupply > 0) { return true; }
+        if(CurrentWaterSupply > 0) { return true; }
         else
         {
             return false;
