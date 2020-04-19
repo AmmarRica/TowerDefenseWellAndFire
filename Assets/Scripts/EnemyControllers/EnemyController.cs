@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+
 public class EnemyController : MonoBehaviour
 {
 
@@ -12,7 +13,6 @@ public class EnemyController : MonoBehaviour
     public Transform target;
 
     NavMeshAgent agent;
-
 
 
     // Start is called before the first frame update
@@ -58,7 +58,6 @@ public class EnemyController : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position, size);
+        Gizmos.DrawWireSphere(transform.position, lookRadius);
     }
-
 }

@@ -189,6 +189,7 @@ MonoBehaviour:
   isFiring: 0
   spawn: {fileID: 899482462500158960}
   shotdistance: 20
+  particleSystem: {fileID: 0}
   bullet: {fileID: 7308986118169933327, guid: e33c0e40716e2f740893dd7810eb2fd3, type: 3}
   bulletSpeed: 5
   timeBetweenShots: 0
@@ -207,6 +208,7 @@ GameObject:
   - component: {fileID: 899482462752345092}
   - component: {fileID: 899482462752345088}
   - component: {fileID: 899482462752345089}
+  - component: {fileID: 3958199814442792947}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -320,3 +322,22 @@ MonoBehaviour:
   moveSpeed: 6
   rotationSpeed: 450
   gun: {fileID: 899482462500158961}
+--- !u!114 &3958199814442792947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899482462752345099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b58d584b92916724fb346e98767b404a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  maxWaterSupply: 100
+  damage:
+    baseValue: 0
+  armor:
+    baseValue: 0
+  waterSupply: 0

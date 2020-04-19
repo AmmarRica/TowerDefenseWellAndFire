@@ -20,24 +20,18 @@ public class GunController : MonoBehaviour
 
     public Transform firePoint;
 
-    public void Shoot()
-    {
-        Ray ray = new Ray(spawn.position, spawn.forward);
-        RaycastHit hit;
+    //public void Shoot()
+    //{
+    //    Ray ray = new Ray(spawn.position, spawn.forward);
+    //    RaycastHit hit;
         
 
-        if(Physics.Raycast(ray,out hit, shotdistance))
-        {
-            shotdistance = hit.distance;
-        }
-        Debug.DrawRay(ray.origin, ray.direction * shotdistance, Color.red,1);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //    if(Physics.Raycast(ray,out hit, shotdistance))
+    //    {
+    //        shotdistance = hit.distance;
+    //    }
+    //    Debug.DrawRay(ray.origin, ray.direction * shotdistance, Color.red,1);
+    //}
 
     // Update is called once per frame
     void Update()

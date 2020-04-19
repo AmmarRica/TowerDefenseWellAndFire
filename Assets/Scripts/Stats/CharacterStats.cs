@@ -3,10 +3,12 @@
 public class CharacterStats : MonoBehaviour
 {
     public int maxHealth = 100;
+    public int maxWaterSupply = 100;
     public int CurrentHealth { get; private set; }
 
     public Stat damage;
     public Stat armor;
+    public int waterSupply;
 
      void Awake()
      {
@@ -43,5 +45,18 @@ public class CharacterStats : MonoBehaviour
 
         //Meant to be overriden from somewhere else.
         Debug.Log(transform.name + " died.");
+    }
+
+    public void ReloadWater()
+    {
+        if(waterSupply <= maxWaterSupply)
+        {
+            Debug.Log("Water Supply:" + waterSupply);
+            waterSupply++;
+        }
+        else
+        {
+            Debug.Log("Water is full!");
+        }
     }
 }

@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody rigidbody;
     Camera ViewCamera;
     Vector3 velocity;
+    CharacterStats characterStats;
 
     private Quaternion targetRotation;
 
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody>();
         ViewCamera = Camera.main;
+        characterStats = GetComponent<CharacterStats>();
     }
 
     // Update is called once per frame
@@ -34,8 +36,9 @@ public class PlayerController : MonoBehaviour
             if (gun == null) { Debug.Log("no gun found"); }
             else
             {
-                gun.Shoot();
+                //gun.Shoot();
                 gun.isFiring = true;
+                characterStats.ReloadWater();
             }
         }
         if (Input.GetButtonUp("shoot") && gun)
