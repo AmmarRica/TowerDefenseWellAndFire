@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
 {
 
     public float lookRadius = 10f;
+    public Vector3 size;
     public GameObject endPoint;
     public Transform target;
    
@@ -59,6 +60,6 @@ public class EnemyController : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, lookRadius);
+        Gizmos.DrawWireCube(transform.position, size);
     }
 }
