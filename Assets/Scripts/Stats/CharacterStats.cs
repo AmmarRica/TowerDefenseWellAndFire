@@ -8,9 +8,14 @@ public class CharacterStats : MonoBehaviour
 
     public Stat damage;
     public Stat armor;
-    public int waterSupply;
+    public float waterSupply;
 
-     void Awake()
+    private float timer = 0;
+    
+    public float waterAddRate = 0.5f;
+    public float waterReduceRate = 0.5f;
+
+    void Awake()
      {
         CurrentHealth = maxHealth;
      }
@@ -19,6 +24,7 @@ public class CharacterStats : MonoBehaviour
 
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.T))
         {
             TakeDamage(10);
@@ -52,11 +58,35 @@ public class CharacterStats : MonoBehaviour
         if(waterSupply <= maxWaterSupply)
         {
             Debug.Log("Water Supply:" + waterSupply);
-            waterSupply++;
+            waterSupply= waterSupply + (Time.deltaTime * waterAddRate);
         }
         else
         {
             Debug.Log("Water is full!");
+            waterSupply = 100;
+        }
+    }
+    public void SpendWater()
+    {
+        timer += Time.deltaTime;
+        if(waterSupply <= 0)
+        {
+            Debug.Log("Water is Empty!");
+            waterSupply = 0;
+        }
+        else
+        {
+                waterSupply = waterSupply - (Time.deltaTime * waterReduceRate);
+                Debug.Log("Water is: " + waterSupply);
+        }
+    }
+
+    public bool PlayerCanShoot()
+    {
+        if(waterSupply > 0) { return true; }
+        else
+        {
+            return false;
         }
     }
 }

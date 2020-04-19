@@ -22,6 +22,15 @@ public class WellController : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("Player is refueling water");
+
+            //add to water
+            //characterStats.SpendWater();
+            var charStats = collision.gameObject.GetComponent<CharacterStats>();
+            if (charStats)
+            {
+                charStats.ReloadWater();
+            }
+
         }
     }
 

@@ -33,7 +33,7 @@ public class BulletController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Bullet collided with: "+collision.gameObject.name);
+    //        Debug.Log("Bullet collided with: "+collision.gameObject.name);
 
         if (collision.gameObject.tag == "Enemy")
         {

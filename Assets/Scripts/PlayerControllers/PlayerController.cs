@@ -31,16 +31,17 @@ public class PlayerController : MonoBehaviour
         ControlMouse();
         //ControlWASDOnly()
 
-        if (Input.GetButtonDown("shoot"))
+        if (Input.GetButton("shoot"))
         {
             if (gun == null) { Debug.Log("no gun found"); }
-            else
+            else if(gun != null && characterStats.PlayerCanShoot())
             {
                 //gun.Shoot();
                 gun.isFiring = true;
-                characterStats.ReloadWater();
+                characterStats.SpendWater();
             }
         }
+
         if (Input.GetButtonUp("shoot") && gun)
         {
             gun.isFiring = false;
